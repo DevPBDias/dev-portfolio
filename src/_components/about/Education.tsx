@@ -7,7 +7,7 @@ const Education = () => {
   const isLight = theme === "light";
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 text-left">
       <h4
         className={`text-lg sm:text-xl font-semibold ${
           isLight ? "text-slate-800" : "text-slate-200"
@@ -17,26 +17,28 @@ const Education = () => {
       </h4>
       <div className="space-y-3">
         <div
-          className={`p-4 rounded-lg border-l-4 ${
+          className={`p-4 rounded-lg flex flex-col items-start justify-start gap-2 ${
             isLight
-              ? "bg-blue-50 border-blue-500 text-slate-700"
-              : "bg-slate-800/50 border-emerald-500 text-slate-300"
+              ? "bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200"
+              : "bg-gradient-to-r from-slate-800/50 to-slate-700/50 border border-slate-600"
           }`}
         >
-          <h5 className="font-semibold">Desenvolvimento Web Full Stack</h5>
-          <p className="text-sm opacity-80">Trybe</p>
-        </div>
-        <div
-          className={`p-4 rounded-lg border-l-4 ${
-            isLight
-              ? "bg-blue-50 border-blue-500 text-slate-700"
-              : "bg-slate-800/50 border-emerald-500 text-slate-300"
-          }`}
-        >
-          <h5 className="font-semibold">Cloud Computing</h5>
-          <p className="text-sm opacity-80">
-            Escola da Nuvem - AWS Cloud Practitioner
-          </p>
+          <div className="flex flex-row items-center justify-center gap-2">
+            <h5 className="font-semibold">Trybe</h5>
+            <p className="text-sm opacity-80">
+              - Desenvolvimento Web Full Stack - 04/2023
+            </p>
+          </div>
+          <div className="flex flex-row items-center justify-center gap-2">
+            <h5 className="font-semibold">Coursera</h5>
+            <p className="text-sm opacity-80">- UX Google Design - 03/2024</p>
+          </div>
+          <div className="flex flex-row items-center justify-center gap-2">
+            <h5 className="font-semibold">Escola da Nuvem</h5>
+            <p className="text-sm opacity-80">
+              - Cloud Computing & WS Cloud Practitioner - 06/2025
+            </p>
+          </div>
         </div>
       </div>
     </div>

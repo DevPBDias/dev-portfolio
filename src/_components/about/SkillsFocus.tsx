@@ -8,13 +8,13 @@ const SkillsFocus = () => {
 
   const skills = [
     "Arquitetura Frontend",
-    "Automação",
-    "UI/UX",
     "Responsividade",
+    "Cloud computing",
+    "UI/UX",
   ];
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 text-left">
       <h4
         className={`text-lg sm:text-xl font-semibold ${
           isLight ? "text-slate-800" : "text-slate-200"
