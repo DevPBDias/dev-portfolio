@@ -2,7 +2,6 @@
 import { useTheme } from "@/context/ThemeContext";
 import { Home, User, FolderGit2, Mail } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-import { useSection } from "@/context/SectionContext";
 
 const sections = [
   { id: "home", icon: <Home size={22} />, label: "Home" },
@@ -12,13 +11,20 @@ const sections = [
 ];
 
 const FloatingGlassNavbar = () => {
-  const { activeSection, setActiveSection } = useSection();
   const { theme } = useTheme();
   const isDay = theme === "light";
+  const navigate = (id: "home" | "sobre" | "projetos" | "contato") => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.location.hash = `#${id}`;
+    }
+  };
 
   return (
     <nav
-      className={`fixed top-1/2 left-24 -translate-y-1/2 z-50 flex flex-col items-center gap-6 
+      className={`hidden lg:flex fixed top-1/2 left-24 -translate-y-1/2 z-50 flex-col items-center gap-6 
       px-3 py-5 rounded-3xl border shadow-xl backdrop-blur-xl transition-all duration-500
       ${
         isDay
@@ -26,19 +32,15 @@ const FloatingGlassNavbar = () => {
           : "bg-blue-900/20 border-blue-200/20 shadow-[0_0_25px_rgba(173,216,230,0.2)]"
       }`}
     >
-      <ThemeToggle />
+      <ThemeToggle styles="hidden lg:block" />
 
       {sections.map((section) => (
         <div key={section.id} className="relative group">
           <button
-            onClick={() => setActiveSection(section.id as "home" | "sobre" | "projetos" | "contato")}
+            onClick={() => navigate(section.id as any)}
             className={`cursor-pointer flex items-center justify-center p-2 rounded-full transition-all duration-300
             ${
-              activeSection === section.id
-                ? isDay
-                  ? "bg-blue-900 text-white scale-110"
-                  : "bg-blue-100 text-blue-900 scale-110"
-                : isDay
+              isDay
                 ? "text-blue-900 hover:bg-blue-900/10"
                 : "text-blue-100 hover:bg-blue-100/10"
             }
