@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import FloatingGlassNavbar from "@/_components/floating-navbar/FloatingNavbar";
+import MobileNavbar from "@/_components/floating-navbar/MobileNavbar";
 import FloatingGlassSocialBar from "@/_components/floating-navbar/FloatingSocialMedia";
 import HeroImage from "@/_components/layout/HeroImage";
-import { SectionProvider } from "@/context/SectionContext";
+// SectionContext não é mais necessário com parallax/anchors
 
 export const metadata: Metadata = {
   title: "Dev Paulo Dias - Frontend Developer",
@@ -20,15 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased relative min-h-screen w-full overflow-hidden flex items-center justify-center`}
+        className={`antialiased relative min-dvh-screen w-full overflow-hidden flex items-center justify-center`}
       >
         <ThemeProvider>
-          <SectionProvider>
-            <FloatingGlassNavbar />
-            <FloatingGlassSocialBar />
-            <HeroImage />
-            {children}
-          </SectionProvider>
+          <FloatingGlassNavbar />
+          <MobileNavbar />
+          <FloatingGlassSocialBar />
+          <HeroImage />
+          {children}
         </ThemeProvider>
       </body>
     </html>
