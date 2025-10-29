@@ -1,19 +1,22 @@
 "use client";
 
-import { useSection } from "@/context/SectionContext";
 import { useTheme } from "@/context/ThemeContext";
 import Link from "next/link";
 import { Download } from "lucide-react";
 
 const CtaButtons = () => {
-  const { setActiveSection } = useSection();
   const { theme } = useTheme();
   const isLight = theme === "light";
+  const goProjects = () => {
+    const el = document.getElementById("projetos");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.location.hash = "#projetos";
+  };
 
   return (
     <div className="flex flex-col sm:flex-row gap-4">
       <button
-        onClick={() => setActiveSection("projetos")}
+        onClick={goProjects}
         className={`cursor-pointer px-4 py-2 rounded-xl min-w-36 font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${
           isLight
             ? "bg-blue-700 text-white hover:bg-blue-800"
