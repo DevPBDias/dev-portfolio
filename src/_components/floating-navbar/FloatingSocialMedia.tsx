@@ -19,7 +19,7 @@ const socialLinks = [
     icon: (
       <Image src="/icons/behance.png" alt="Behance" width={28} height={28} />
     ),
-    url: "https://behance.net/seuusuario",
+    url: "https://www.behance.net/pbdias",
   },
 ];
 

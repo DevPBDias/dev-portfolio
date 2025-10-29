@@ -11,13 +11,13 @@ const Description = () => {
 
   return (
     <p
-      className={`text-lg sm:text-xl leading-relaxed text-start ${
-        poppins.className
-      } ${isLight ? "text-slate-600" : "text-slate-300"}`}
+      className={`text-lg leading-relaxed text-start ${poppins.className} ${
+        isLight ? "text-slate-600" : "text-slate-300"
+      }`}
     >
-      Especializado em <strong>React</strong> e <strong>Next.js</strong>,
-      transformo ideias em experiências digitais excepcionais. Transição de
-      carreira da engenharia civil para o desenvolvimento web.
+      Especializado em <strong>React</strong>, <strong>Next.js</strong> e{" "}
+      <strong>UX/UI Design</strong>. Apaixonado por soluções digitais que fazem
+      diferença na vida das pessoas.
     </p>
   );
 };
