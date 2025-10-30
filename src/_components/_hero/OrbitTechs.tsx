@@ -7,7 +7,7 @@ export function OrbitingCirclesDemo() {
   const isLight = theme === "light";
 
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
+    <div className="relative flex h-72 sm:h-96 md:h-[500px] w-full flex-col items-center justify-center overflow-hidden">
       <OrbitingCircles
         iconSize={40}
         orbitColor={isLight ? "blue" : "emerald"}

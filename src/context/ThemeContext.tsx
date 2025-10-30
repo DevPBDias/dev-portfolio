@@ -1,62 +1,46 @@
 "use client";
-import React, {
+import {
   createContext,
-  useState,
   useContext,
-  ReactNode,
-  useEffect,
+  useMemo,
+  useState,
+  PropsWithChildren,
 } from "react";
+import { ThemeType } from "./ThemeSelector";
 
-type Theme = "light" | "dark";
+type ThemeContextValue = {
+  currentTheme: ThemeType;
+  transitioning: boolean;
+  changeTheme: (newTheme: ThemeType) => void;
+};
 
-interface ThemeContextProps {
-  theme: Theme;
-  toggleTheme: () => void;
-}
+const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
-const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+export function ThemeProvider({ children }: PropsWithChildren) {
+  const [currentTheme, setCurrentTheme] = useState<ThemeType>("forest-moon");
+  const [transitioning, setTransitioning] = useState(false);
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>("dark");
-  const [isLoaded, setIsLoaded] = useState(false);
+  const changeTheme = (newTheme: ThemeType) => {
+    if (currentTheme === newTheme) return;
+    setTransitioning(true);
+    setTimeout(() => {
+      setCurrentTheme(newTheme);
+      setTimeout(() => setTransitioning(false), 500);
+    }, 300);
+  };
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    if (savedTheme === "dark" || savedTheme === "light") {
-      setTheme(savedTheme);
-    }
-    setIsLoaded(true);
-  }, []);
-
-  const toggleTheme = () =>
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-
-  useEffect(() => {
-    if (isLoaded) {
-      const root = window.document.documentElement;
-
-      if (theme === "dark") {
-        root.classList.add("dark");
-      } else {
-        root.classList.remove("dark");
-      }
-
-      localStorage.setItem("theme", theme);
-    }
-  }, [theme, isLoaded]);
-
-  if (!isLoaded) return null;
+  const value = useMemo(
+    () => ({ currentTheme, transitioning, changeTheme }),
+    [currentTheme, transitioning]
+  );
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
-};
+}
 
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context)
-    throw new Error("useTheme deve ser usado dentro de ThemeProvider");
-  return context;
-};
+export function useTheme(): ThemeContextValue {
+  const ctx = useContext(ThemeContext);
+  if (!ctx) throw new Error("useTheme must be used within a ThemeProvider");
+  return ctx;
+}

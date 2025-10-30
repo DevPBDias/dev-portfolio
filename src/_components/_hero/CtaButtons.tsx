@@ -1,47 +1,41 @@
 "use client";
-
-import { useTheme } from "@/context/ThemeContext";
-import Link from "next/link";
-import { Download } from "lucide-react";
-
-const CtaButtons = () => {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
-  const goProjects = () => {
-    const el = document.getElementById("projetos");
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    else window.location.hash = "#projetos";
-  };
-
+import { motion } from "framer-motion";
+import { Mail, ExternalLink } from "lucide-react";
+interface CtaButtonsProps {
+  className?: string;
+  variants?: any;
+  scrollToProjects: () => void;
+}
+export function CtaButtons({
+  className = "",
+  variants,
+  scrollToProjects,
+}: CtaButtonsProps) {
   return (
-    <div className="flex flex-col sm:flex-row gap-4">
+    <motion.div
+      className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 px-2 sm:px-0 ${className}`}
+      variants={variants}
+    >
       <button
-        onClick={goProjects}
-        className={`cursor-pointer px-4 py-2 rounded-xl min-w-36 font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${
-          isLight
-            ? "bg-blue-700 text-white hover:bg-blue-800"
-            : "bg-emerald-500 text-slate-900 hover:bg-emerald-600"
-        }`}
+        onClick={scrollToProjects}
+        className="cursor-pointer w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-black/80 hover:bg-black/90 text-white drop-shadow-lg rounded-full border-2 border-white/50 backdrop-blur-sm transition-all duration-300 font-semibold flex items-center justify-center gap-2 group focus:outline-none focus:ring-4 focus:ring-white/50 text-sm sm:text-base"
       >
-        Ver Projetos
-      </button>
-      <Link
-        href="/cv/PauloBruno_CV.pdf"
-        download="PauloBruno_CV.pdf"
-        className={`flex items-center justify-center gap-2 min-w-36 cursor-pointer px-4 py-2 rounded-xl font-semibold text-lg transition-all duration-300 border-2 ${
-          isLight
-            ? "border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white"
-            : "border-emerald-500 text-emerald-400 hover:bg-emerald-500 hover:text-slate-900"
-        }`}
-      >
-        <Download
-          size={20}
-          className="group-hover:translate-y-[1px] transition-transform"
+        Ver Meu Trabalho
+        <ExternalLink
+          size={16}
+          className="sm:w-[18px] sm:h-[18px] group-hover:translate-x-1 transition-transform"
         />
-        CV
-      </Link>
-    </div>
+      </button>
+      <a
+        href="mailto:paulo@example.com"
+        className="cursor-pointer w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full backdrop-blur-sm transition-all duration-300 font-semibold flex items-center justify-center gap-2 group focus:outline-none focus:ring-4 focus:ring-blue-300 text-sm sm:text-base"
+      >
+        Entre em Contato
+        <Mail
+          size={16}
+          className="sm:w-[18px] sm:h-[18px] group-hover:scale-110 transition-transform"
+        />
+      </a>
+    </motion.div>
   );
-};
-
-export default CtaButtons;
+}

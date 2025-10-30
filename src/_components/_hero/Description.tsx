@@ -1,25 +1,18 @@
 "use client";
-
-import { Poppins } from "next/font/google";
-import { useTheme } from "@/context/ThemeContext";
-
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600"] });
-
-const Description = () => {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
-
+import { motion } from "framer-motion";
+interface DescriptionProps {
+  className?: string;
+  variants?: any;
+}
+export function Description({ className = "", variants }: DescriptionProps) {
   return (
-    <p
-      className={`text-lg leading-relaxed text-start ${poppins.className} ${
-        isLight ? "text-slate-600" : "text-slate-300"
-      }`}
+    <motion.p
+      className={`text-sm sm:text-base md:text-lg text-gray-50 drop-shadow-md mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0 ${className}`}
+      variants={variants}
     >
-      Especializado em <strong>React</strong>, <strong>Next.js</strong> e{" "}
-      <strong>UX/UI Design</strong>. Apaixonado por soluções digitais que fazem
-      diferença na vida das pessoas.
-    </p>
+      Eu crio experiências digitais bonitas, funcionais e centradas no usuário.
+      Apaixonado por código limpo, design inovador e dar vida às ideias através
+      da tecnologia.
+    </motion.p>
   );
-};
-
-export default Description;
+}
