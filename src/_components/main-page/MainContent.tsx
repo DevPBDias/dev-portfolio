@@ -7,7 +7,10 @@ import ProjectsSection from "@/_components/projects/ProjectsSection";
 export default function MainContent() {
   return (
     <div className="relative z-10">
-      <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
+      <div
+        id="home"
+        className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8"
+      >
         <PortfolioHero />
       </div>
       <AboutSection />

@@ -4,15 +4,9 @@ import { ExternalLink } from "lucide-react";
 
 interface SocialLinksGridProps {
   textColor: string;
-  subtextColor: string;
-  cardHover: string;
 }
 
-export default function SocialLinksGrid({
-  textColor,
-  subtextColor,
-  cardHover,
-}: SocialLinksGridProps) {
+export default function SocialLinksGrid({ textColor }: SocialLinksGridProps) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
       {socialLinks.map((social) => (
@@ -21,7 +15,7 @@ export default function SocialLinksGrid({
           href={social.url}
           target="_blank"
           rel="noopener noreferrer"
-          className={`cursor-pointer flex items-center gap-2 sm:gap-3 p-3 sm:p-4 ${cardHover} rounded-lg transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-white/30`}
+          className={`cursor-pointer flex items-center gap-2 sm:gap-3 p-3 sm:p-4 hover:bg-black/85 rounded-lg transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-white/30`}
         >
           <div className="p-2 bg-black/50 rounded-lg group-hover:bg-black/60 transition-colors border border-white/30">
             <social.icon
@@ -36,7 +30,9 @@ export default function SocialLinksGrid({
             >
               {social.name}
             </p>
-            <p className={`text-xs sm:text-sm ${subtextColor} truncate`}>
+            <p
+              className={`text-xs sm:text-sm text-gray-50 drop-shadow-md truncate`}
+            >
               {social.username}
             </p>
           </div>

@@ -1,30 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import ContactHeader from "./ContactHeader";
-import ContactForm from "./ContactForm";
 import ContactInfoList from "./ContactInfoList";
 import SocialLinksGrid from "./SocialLinksGrid";
 import { contactInfo } from "@/constants/contact-data";
+import { useTheme } from "@/context/ThemeContext";
+import { Heart } from "lucide-react";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { currentTheme } = useTheme();
 
-  const textColor = "text-white drop-shadow-lg";
-  const subtextColor = "text-gray-50 drop-shadow-md";
-  const cardBg = "bg-black/75";
-  const cardHover = "hover:bg-black/85";
-  const borderColor = "border-white/50";
-  const inputBg = "bg-black/60";
-  const inputFocus = "focus:bg-black/70";
-  const primaryButton = "bg-blue-600 hover:bg-blue-700";
+  const textColor =
+    currentTheme === "forest-moon"
+      ? "text-green-500 drop-shadow-lg"
+      : currentTheme === "anime-sky"
+      ? "text-blue-500 drop-shadow-lg"
+      : "text-orange-500 drop-shadow-lg";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -39,21 +31,6 @@ export default function ContactSection() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
-    console.log("Form submitted:", formData);
-  };
-
   return (
     <section
       id="contato"
@@ -66,67 +43,39 @@ export default function ContactSection() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <ContactHeader
-          textColor={textColor}
-          subtextColor={subtextColor}
-          variants={itemVariants}
-        />
+        <ContactHeader textColor={textColor} variants={itemVariants} />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
-          <ContactForm
-            formData={formData}
-            isSubmitting={isSubmitting}
-            onChange={handleInputChange}
-            onSubmit={handleSubmit}
-            textColor={textColor}
-            subtextColor={subtextColor}
-            borderColor={borderColor}
-            inputBg={inputBg}
-            inputFocus={inputFocus}
-            primaryButton={primaryButton}
-            cardBg={cardBg}
+          <motion.div
+            className="bg-black/75 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-white/50"
             variants={itemVariants}
-          />
-
-          <div className="space-y-6 sm:space-y-8">
-            <motion.div
-              className={`${cardBg} backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 ${borderColor}`}
-              variants={itemVariants}
+          >
+            <h3
+              className={`text-xl sm:text-2xl font-bold ${textColor} mb-4 sm:mb-6`}
             >
-              <h3
-                className={`text-xl sm:text-2xl font-bold ${textColor} mb-4 sm:mb-6`}
-              >
-                Informações de Contato
-              </h3>
-              <ContactInfoList
-                items={contactInfo}
-                textColor={textColor}
-                subtextColor={subtextColor}
-                cardHover={cardHover}
-              />
-            </motion.div>
+              Informações de Contato
+            </h3>
+            <ContactInfoList items={contactInfo} textColor={textColor} />
+          </motion.div>
 
-            <motion.div
-              className={`${cardBg} backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 ${borderColor}`}
-              variants={itemVariants}
+          <motion.div
+            className="bg-black/75 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-white/50"
+            variants={itemVariants}
+          >
+            <h3
+              className={`text-xl sm:text-2xl font-bold ${textColor} mb-4 sm:mb-6`}
             >
-              <h3
-                className={`text-xl sm:text-2xl font-bold ${textColor} mb-4 sm:mb-6`}
-              >
-                Me Siga
-              </h3>
-              <SocialLinksGrid
-                textColor={textColor}
-                subtextColor={subtextColor}
-                cardHover={cardHover}
-              />
-            </motion.div>
-          </div>
+              Minhas redes sociais
+            </h3>
+            <SocialLinksGrid textColor={textColor} />
+          </motion.div>
         </div>
 
         <motion.div className="text-center" variants={itemVariants}>
-          <p className={`${subtextColor} text-base sm:text-lg px-4 sm:px-0`}>
-            Obrigado pela visita! Estou ansioso para me conectar com você.
+          <p className="text-gray-50 drop-shadow-md text-base sm:text-lg px-4 sm:px-0 flex items-center justify-center gap-2">
+            Obrigado pela visita! Feito com{" "}
+            <Heart color="red" size={24} className="animate-pulse" /> por
+            DevPauloDias.
           </p>
         </motion.div>
       </motion.div>
