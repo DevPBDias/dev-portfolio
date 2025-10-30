@@ -74,14 +74,14 @@ export const contactInfo: ContactInfo[] = [
     icon: Phone,
     label: "Telefone",
     value: "+55 (63) 99231-0976",
-    href: "tel:+5563992310976",
+    href: "",
     color: "#10b981",
   },
   {
     icon: MapPin,
     label: "Localização",
     value: "Palmas, TO",
-    href: "https://maps.app.goo.gl/6Y99Q8422JN3Hk9h8",
+    href: "",
     color: "#f59e0b",
   },
 ];
