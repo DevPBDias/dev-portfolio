@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "@/context/ThemeContext";
 import { motion } from "framer-motion";
-import { Mail, ExternalLink, Download } from "lucide-react";
+import { ExternalLink, Download } from "lucide-react";
 import Link from "next/link";
 interface CtaButtonsProps {
   className?: string;
