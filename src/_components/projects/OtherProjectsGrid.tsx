@@ -3,17 +3,6 @@ import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { Project, projects as allProjects } from "@/constants/projects-data";
 
-interface ProjectItem {
-  id: number;
-  title: string;
-  description: string;
-  technologies: string[];
-  category: string;
-  year: string;
-  githubUrl?: string;
-  liveUrl?: string;
-}
-
 interface OtherProjectsGridProps {
   textColor: string;
   secondaryButton: string;

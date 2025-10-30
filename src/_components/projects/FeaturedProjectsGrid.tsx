@@ -1,20 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import ProjectCardFeatured from "./ProjectCardFeatured";
-import type { StaticImageData } from "next/image";
 import { Project, projects as allProjects } from "@/constants/projects-data";
-
-interface FeaturedProject {
-  id: number;
-  title: string;
-  longDescription: string;
-  image: string | StaticImageData;
-  technologies: string[];
-  category: string;
-  year: string;
-  githubUrl?: string;
-  liveUrl?: string;
-}
 
 interface FeaturedProjectsGridProps {
   textColor: string;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 type Particle = { left: number; top: number; delay: number; duration: number };
 
@@ -23,10 +24,13 @@ export default function AnimeSky() {
     <div ref={containerRef} className="w-full h-full relative overflow-hidden">
       {/* Animated background image with slow pan */}
       <div className="absolute inset-0 animate-slow-pan">
-        <img
+        <Image
           src="/images/day.png"
           alt="Anime Sky Background"
-          className="w-full h-full object-cover scale-110"
+          fill
+          sizes="100vw"
+          className="object-cover scale-110"
+          priority
         />
       </div>
 

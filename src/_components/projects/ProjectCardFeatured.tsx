@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Eye, Github } from "lucide-react";
 import type { StaticImageData } from "next/image";
+import Image from "next/image";
 
 interface FeaturedProject {
   id: number;
@@ -36,11 +37,14 @@ export default function ProjectCardFeatured({
       variants={variants}
       whileHover={{ scale: 1.02, y: -5 }}
     >
-      <div className="relative overflow-hidden">
-        <img
-          src={(project.image as any) || "/placeholder.svg"}
+      <div className="relative overflow-hidden h-40 sm:h-48">
+        <Image
+          src={project.image || "/placeholder.svg"}
           alt={project.title}
-          className="w-full h-40 sm:h-48 object-cover object-top transition-transform duration-300 group-hover:scale-110"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover object-top transition-transform duration-300 group-hover:scale-110"
+          priority={false}
         />
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
 

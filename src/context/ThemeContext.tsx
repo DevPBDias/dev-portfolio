@@ -5,6 +5,7 @@ import {
   useMemo,
   useState,
   PropsWithChildren,
+  useCallback,
 } from "react";
 import { ThemeType } from "./ThemeSelector";
 
@@ -20,18 +21,21 @@ export function ThemeProvider({ children }: PropsWithChildren) {
   const [currentTheme, setCurrentTheme] = useState<ThemeType>("forest-moon");
   const [transitioning, setTransitioning] = useState(false);
 
-  const changeTheme = (newTheme: ThemeType) => {
-    if (currentTheme === newTheme) return;
-    setTransitioning(true);
-    setTimeout(() => {
-      setCurrentTheme(newTheme);
-      setTimeout(() => setTransitioning(false), 500);
-    }, 300);
-  };
+  const changeTheme = useCallback(
+    (newTheme: ThemeType) => {
+      if (currentTheme === newTheme) return;
+      setTransitioning(true);
+      setTimeout(() => {
+        setCurrentTheme(newTheme);
+        setTimeout(() => setTransitioning(false), 500);
+      }, 300);
+    },
+    [currentTheme]
+  );
 
   const value = useMemo(
     () => ({ currentTheme, transitioning, changeTheme }),
-    [currentTheme, transitioning]
+    [currentTheme, transitioning, changeTheme]
   );
 
   return (
