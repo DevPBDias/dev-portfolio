@@ -3,8 +3,8 @@ import { useTheme } from "@/context/ThemeContext";
 import Image from "next/image";
 
 export function OrbitingCirclesDemo() {
-  const { theme } = useTheme();
-  const isLight = theme === "light";
+  const { currentTheme } = useTheme();
+  const isLight = currentTheme === "forest-moon";
 
   return (
     <div className="relative flex h-72 sm:h-96 md:h-[500px] w-full flex-col items-center justify-center overflow-hidden">

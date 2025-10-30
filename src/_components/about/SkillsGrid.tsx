@@ -11,7 +11,7 @@ export default function SkillsGrid({ textColor, variants }: SkillsGridProps) {
   return (
     <motion.div className="mb-12 sm:mb-16" variants={variants}>
       <h3
-        className={`text-2xl sm:text-3xl font-bold ${textColor} text-center mb-8 sm:mb-12`}
+        className={`text-2xl sm:text-3xl font-bold ${textColor} text-left w-fit mb-8 sm:mb-12 bg-black/75 py-4 px-6 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border-2 border-white/50`}
       >
         Habilidades & Tecnologias
       </h3>

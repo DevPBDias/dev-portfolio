@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Greeting } from "./Greeting";
 import { MainTitle } from "./MainTitle";
@@ -10,9 +8,6 @@ import { SocialLinks } from "./SocialLinks";
 import { AnimatedScrollButton } from "./AnimatedScrollButton";
 
 export default function HeroSection() {
-  const cardBg = "bg-black/75";
-  const borderColor = "border-white/50";
-
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -46,7 +41,7 @@ export default function HeroSection() {
       animate="visible"
     >
       <motion.div
-        className={`backdrop-blur-md ${cardBg} rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 border-2 ${borderColor} shadow-2xl`}
+        className="backdrop-blur-md bg-black/75 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 border-2 border-white/50 shadow-2xl"
         variants={itemVariants}
       >
         <Greeting variants={itemVariants} />

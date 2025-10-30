@@ -1,12 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Palette, Rocket, Users, Coffee } from "lucide-react";
 import AboutSectionHeader from "./AboutSectionHeader";
 import PersonalStoryCard from "./PersonalStoryCard";
 import ValuesCard from "./ValuesCard";
 import SkillsGrid from "./SkillsGrid";
-import StatsCard from "./StatsCard";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function AboutSection() {

@@ -11,7 +11,10 @@ export default function AboutSectionHeader({
   variants,
 }: AboutSectionHeaderProps) {
   return (
-    <motion.div className="text-center mb-12 sm:mb-16" variants={variants}>
+    <motion.div
+      className="text-center mb-12 sm:mb-16 bg-black/75 w-full py-4 px-6 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border-2 border-white/50"
+      variants={variants}
+    >
       <h2
         className={`text-3xl sm:text-4xl md:text-5xl font-bold ${textColor} mb-4 sm:mb-6`}
       >
