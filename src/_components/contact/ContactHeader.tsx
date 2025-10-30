@@ -12,7 +12,7 @@ export default function ContactHeader({
 }: ContactHeaderProps) {
   return (
     <motion.div
-      className="text-center mb-12 sm:mb-16 bg-black/50 rounded-lg p-6 border-2 border-white/50 backdrop-blur-md"
+      className="text-center mb-12 sm:mb-16 bg-black/75 w-full py-4 px-6 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border-2 border-white/50"
       variants={variants}
     >
       <h2

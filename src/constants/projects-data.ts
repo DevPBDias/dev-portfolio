@@ -69,6 +69,8 @@ export const projects: Project[] = [
       "Shadcn",
       "Firebase Auth&DB",
       "React-hook-form",
+      "Figma",
+      "Vercel",
     ],
     category: "Full Stack",
     year: "2024",
@@ -84,12 +86,12 @@ export const projects: Project[] = [
     longDescription:
       "Aplicação para reprodução de músicas com favoritos e edição de perfil, reescrita com melhorias de UX e código.",
     image: "/images/trybetunes.jpg",
-    technologies: ["React", "NextJS", "Sass", "TS", "Git"],
+    technologies: ["React", "NextJS", "Sass", "TS", "Git", "Vercel", "Figma"],
     category: "Web App",
     year: "2023",
     githubUrl: "https://github.com/DevPBDias/trybetunes-reworked",
     liveUrl: "https://trybetunes-reworked.vercel.app",
-    featured: false,
+    featured: true,
   },
   {
     id: 5,

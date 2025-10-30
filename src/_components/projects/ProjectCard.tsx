@@ -16,12 +16,6 @@ interface ProjectItem {
 interface ProjectCardProps {
   project: ProjectItem;
   textColor: string;
-  subtextColor: string;
-  cardBg: string;
-  cardHover: string;
-  borderColor: string;
-  tagBg: string;
-  tagBorder: string;
   secondaryButton: string;
   variants?: any;
 }
@@ -29,29 +23,27 @@ interface ProjectCardProps {
 export default function ProjectCard({
   project,
   textColor,
-  subtextColor,
-  cardBg,
-  cardHover,
-  borderColor,
-  tagBg,
-  tagBorder,
   secondaryButton,
   variants,
 }: ProjectCardProps) {
   return (
     <motion.div
-      className={`${cardBg} ${cardHover} backdrop-blur-md rounded-lg sm:rounded-xl p-4 sm:p-6 border-2 ${borderColor} transition-all duration-300 group`}
+      className={`bg-black/75 hover:bg-black/85 backdrop-blur-md rounded-lg sm:rounded-xl p-4 sm:p-6 border-2 border-white/50 transition-all duration-300 group`}
       variants={variants}
       whileHover={{ scale: 1.03, y: -3 }}
     >
       <div className="flex items-start justify-between mb-3 sm:mb-4">
         <div className="flex items-center gap-2">
           <Tag size={16} className="sm:w-[18px] sm:h-[18px] text-blue-400" />
-          <span className={`text-xs sm:text-sm ${subtextColor} font-medium`}>
+          <span
+            className={`text-xs sm:text-sm text-gray-50 drop-shadow-md font-medium`}
+          >
             {project.category}
           </span>
         </div>
-        <span className={`text-xs sm:text-sm ${subtextColor} font-medium`}>
+        <span
+          className={`text-xs sm:text-sm text-gray-50 drop-shadow-md font-medium`}
+        >
           {project.year}
         </span>
       </div>
@@ -63,7 +55,7 @@ export default function ProjectCard({
       </h4>
 
       <p
-        className={`${subtextColor} mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed`}
+        className={`text-gray-50 drop-shadow-md mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed`}
       >
         {project.description}
       </p>
@@ -72,13 +64,13 @@ export default function ProjectCard({
         {project.technologies.slice(0, 3).map((tech) => (
           <span
             key={tech}
-            className={`px-2 py-1 ${tagBg} rounded text-xs ${subtextColor} border ${tagBorder}`}
+            className={`px-2 py-1 bg-black/60 rounded text-xs text-gray-50 drop-shadow-md border border-white/40`}
           >
             {tech}
           </span>
         ))}
         {project.technologies.length > 3 && (
-          <span className={`px-2 py-1 text-xs ${subtextColor}`}>
+          <span className={`px-2 py-1 text-xs text-gray-50 drop-shadow-md`}>
             +{project.technologies.length - 3} more
           </span>
         )}

@@ -4,19 +4,28 @@ import { motion } from "framer-motion";
 import ProjectsHeader from "./ProjectsHeader";
 import FeaturedProjectsGrid from "./FeaturedProjectsGrid";
 import OtherProjectsGrid from "./OtherProjectsGrid";
-import ProjectsCTA from "./ProjectsCTA";
-import { projects, Project } from "@/constants/projects-data";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function ProjectsSection() {
-  const textColor = "text-white drop-shadow-lg";
-  const subtextColor = "text-gray-50 drop-shadow-md";
-  const cardBg = "bg-black/75";
-  const cardHover = "hover:bg-black/85";
-  const borderColor = "border-white/50";
-  const primaryButton = "bg-blue-600 hover:bg-blue-700";
-  const secondaryButton = "bg-gray-700 hover:bg-gray-600";
-  const tagBg = "bg-black/60";
-  const tagBorder = "border-white/40";
+  const { currentTheme } = useTheme();
+  const textColor =
+    currentTheme === "forest-moon"
+      ? "text-green-500 drop-shadow-lg"
+      : currentTheme === "anime-sky"
+      ? "text-blue-500 drop-shadow-lg"
+      : "text-orange-500 drop-shadow-lg";
+  const primaryButton =
+    currentTheme === "forest-moon"
+      ? "bg-green-500 hover:bg-green-600"
+      : currentTheme === "anime-sky"
+      ? "bg-blue-500 hover:bg-blue-600"
+      : "bg-orange-500 hover:bg-orange-600";
+  const secondaryButton =
+    currentTheme === "forest-moon"
+      ? "bg-green-800 hover:bg-green-900"
+      : currentTheme === "anime-sky"
+      ? "bg-blue-800 hover:bg-blue-900"
+      : "bg-orange-800 hover:bg-orange-900";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -30,13 +39,6 @@ export default function ProjectsSection() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  const featuredProjects = projects.filter(
-    (project: Project) => project.featured
-  );
-  const otherProjects = projects.filter(
-    (project: Project) => !project.featured
-  );
-
   return (
     <section
       id="projetos"
@@ -49,42 +51,18 @@ export default function ProjectsSection() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <ProjectsHeader
-          textColor={textColor}
-          subtextColor={subtextColor}
-          variants={itemVariants}
-        />
+        <ProjectsHeader textColor={textColor} variants={itemVariants} />
 
         <FeaturedProjectsGrid
-          projects={featuredProjects}
           textColor={textColor}
-          subtextColor={subtextColor}
-          cardBg={cardBg}
-          cardHover={cardHover}
-          borderColor={borderColor}
-          tagBg={tagBg}
-          tagBorder={tagBorder}
           primaryButton={primaryButton}
           secondaryButton={secondaryButton}
           variants={itemVariants}
         />
 
         <OtherProjectsGrid
-          projects={otherProjects}
           textColor={textColor}
-          subtextColor={subtextColor}
-          cardBg={cardBg}
-          cardHover={cardHover}
-          borderColor={borderColor}
-          tagBg={tagBg}
-          tagBorder={tagBorder}
           secondaryButton={secondaryButton}
-          variants={itemVariants}
-        />
-
-        <ProjectsCTA
-          subtextColor={subtextColor}
-          buttonClass={secondaryButton}
           variants={itemVariants}
         />
       </motion.div>

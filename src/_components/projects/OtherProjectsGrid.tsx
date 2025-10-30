@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
+import { Project, projects as allProjects } from "@/constants/projects-data";
 
 interface ProjectItem {
   id: number;
@@ -14,47 +15,33 @@ interface ProjectItem {
 }
 
 interface OtherProjectsGridProps {
-  projects: ProjectItem[];
   textColor: string;
-  subtextColor: string;
-  cardBg: string;
-  cardHover: string;
-  borderColor: string;
-  tagBg: string;
-  tagBorder: string;
   secondaryButton: string;
   variants?: any;
 }
 
 export default function OtherProjectsGrid({
-  projects,
   textColor,
-  subtextColor,
-  cardBg,
-  cardHover,
-  borderColor,
-  tagBg,
-  tagBorder,
   secondaryButton,
   variants,
 }: OtherProjectsGridProps) {
+  const otherProjects = allProjects.filter(
+    (project: Project) => !project.featured
+  );
+
   return (
     <motion.div variants={variants}>
-      <h3 className={`text-xl sm:text-2xl font-bold ${textColor} mb-6 sm:mb-8`}>
+      <h3
+        className={`text-xl sm:text-2xl font-bold ${textColor} mb-6 sm:mb-8 bg-black/75 w-fit py-2 px-6 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border-2 border-white/50`}
+      >
         Mais Projetos
       </h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {projects.map((project) => (
+        {otherProjects.map((project) => (
           <ProjectCard
             key={project.id}
             project={project}
             textColor={textColor}
-            subtextColor={subtextColor}
-            cardBg={cardBg}
-            cardHover={cardHover}
-            borderColor={borderColor}
-            tagBg={tagBg}
-            tagBorder={tagBorder}
             secondaryButton={secondaryButton}
             variants={{
               hidden: { opacity: 0, scale: 0.9 },

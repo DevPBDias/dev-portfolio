@@ -18,12 +18,6 @@ interface FeaturedProject {
 interface ProjectCardFeaturedProps {
   project: FeaturedProject;
   textColor: string;
-  subtextColor: string;
-  cardBg: string;
-  cardHover: string;
-  borderColor: string;
-  tagBg: string;
-  tagBorder: string;
   primaryButton: string;
   secondaryButton: string;
   variants?: any;
@@ -32,19 +26,13 @@ interface ProjectCardFeaturedProps {
 export default function ProjectCardFeatured({
   project,
   textColor,
-  subtextColor,
-  cardBg,
-  cardHover,
-  borderColor,
-  tagBg,
-  tagBorder,
   primaryButton,
   secondaryButton,
   variants,
 }: ProjectCardFeaturedProps) {
   return (
     <motion.div
-      className={`${cardBg} ${cardHover} backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border-2 ${borderColor} transition-all duration-300 group`}
+      className={`bg-black/75 hover:bg-black/85 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border-2 border-white/50 transition-all duration-300 group`}
       variants={variants}
       whileHover={{ scale: 1.02, y: -5 }}
     >
@@ -52,7 +40,7 @@ export default function ProjectCardFeatured({
         <img
           src={(project.image as any) || "/placeholder.svg"}
           alt={project.title}
-          className="w-full h-40 sm:h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+          className="w-full h-40 sm:h-48 object-cover object-top transition-transform duration-300 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
 
@@ -78,7 +66,7 @@ export default function ProjectCardFeatured({
         </h4>
 
         <p
-          className={`${subtextColor} mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base`}
+          className={`text-gray-50 drop-shadow-md mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base`}
         >
           {project.longDescription}
         </p>
@@ -87,7 +75,7 @@ export default function ProjectCardFeatured({
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className={`px-2 py-1 ${tagBg} rounded-md text-xs ${subtextColor} border ${tagBorder}`}
+              className={`px-2 py-1 bg-black/60 rounded-md text-xs text-gray-50 drop-shadow-md border border-white/40`}
             >
               {tech}
             </span>

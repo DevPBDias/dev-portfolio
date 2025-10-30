@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import ProjectCardFeatured from "./ProjectCardFeatured";
 import type { StaticImageData } from "next/image";
+import { Project, projects as allProjects } from "@/constants/projects-data";
 
 interface FeaturedProject {
   id: number;
@@ -16,49 +17,35 @@ interface FeaturedProject {
 }
 
 interface FeaturedProjectsGridProps {
-  projects: FeaturedProject[];
   textColor: string;
-  subtextColor: string;
-  cardBg: string;
-  cardHover: string;
-  borderColor: string;
-  tagBg: string;
-  tagBorder: string;
   primaryButton: string;
   secondaryButton: string;
   variants?: any;
 }
 
 export default function FeaturedProjectsGrid({
-  projects,
   textColor,
-  subtextColor,
-  cardBg,
-  cardHover,
-  borderColor,
-  tagBg,
-  tagBorder,
   primaryButton,
   secondaryButton,
   variants,
 }: FeaturedProjectsGridProps) {
+  const featuredProjects = allProjects.filter(
+    (project: Project) => project.featured
+  );
+
   return (
     <motion.div className="mb-16 sm:mb-20" variants={variants}>
-      <h3 className={`text-xl sm:text-2xl font-bold ${textColor} mb-6 sm:mb-8`}>
+      <h3
+        className={`text-xl sm:text-2xl font-bold ${textColor} mb-6 sm:mb-8 bg-black/75 w-fit py-2 px-6 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border-2 border-white/50`}
+      >
         Trabalhos em Destaque
       </h3>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-        {projects.map((project) => (
+      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 sm:gap-8">
+        {featuredProjects.map((project) => (
           <ProjectCardFeatured
             key={project.id}
             project={project}
             textColor={textColor}
-            subtextColor={subtextColor}
-            cardBg={cardBg}
-            cardHover={cardHover}
-            borderColor={borderColor}
-            tagBg={tagBg}
-            tagBorder={tagBorder}
             primaryButton={primaryButton}
             secondaryButton={secondaryButton}
             variants={{
