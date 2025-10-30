@@ -1,40 +1,13 @@
 "use client";
+import { skills } from "@/constants/techs-data";
 import { motion } from "framer-motion";
 
-type Skill = {
-  category: string;
-  icon: React.ComponentType<{
-    size?: number;
-    color?: string;
-    className?: string;
-  }>;
-  technologies: string[];
-  color: string;
-};
-
 interface SkillsGridProps {
-  skills: Skill[];
   textColor: string;
-  subtextColor: string;
-  cardBg: string;
-  cardHover: string;
-  borderColor: string;
-  tagBg: string;
-  tagBorder: string;
   variants?: any;
 }
 
-export default function SkillsGrid({
-  skills,
-  textColor,
-  subtextColor,
-  cardBg,
-  cardHover,
-  borderColor,
-  tagBg,
-  tagBorder,
-  variants,
-}: SkillsGridProps) {
+export default function SkillsGrid({ textColor, variants }: SkillsGridProps) {
   return (
     <motion.div className="mb-12 sm:mb-16" variants={variants}>
       <h3
@@ -46,7 +19,7 @@ export default function SkillsGrid({
         {skills.map((skill) => (
           <motion.div
             key={skill.category}
-            className={`${cardBg} ${cardHover} backdrop-blur-md rounded-lg sm:rounded-xl p-4 sm:p-6 border-2 ${borderColor} transition-all duration-300 group`}
+            className={`bg-black/75 hover:bg-black/85 backdrop-blur-md rounded-lg sm:rounded-xl p-4 sm:p-6 border-2 border-white/50 transition-all duration-300 group`}
             variants={variants}
             whileHover={{ scale: 1.05 }}
           >
@@ -64,7 +37,7 @@ export default function SkillsGrid({
               {skill.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className={`px-2 sm:px-3 py-1 ${tagBg} rounded-full text-xs sm:text-sm ${subtextColor} border ${tagBorder}`}
+                  className={`px-2 sm:px-3 py-1 bg-black/60 rounded-full text-xs sm:text-sm text-gray-50 drop-shadow-md border border-white/40`}
                 >
                   {tech}
                 </span>

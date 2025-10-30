@@ -3,13 +3,11 @@ import { motion } from "framer-motion";
 
 interface AboutSectionHeaderProps {
   textColor: string;
-  subtextColor: string;
   variants?: any;
 }
 
 export default function AboutSectionHeader({
   textColor,
-  subtextColor,
   variants,
 }: AboutSectionHeaderProps) {
   return (
@@ -20,7 +18,7 @@ export default function AboutSectionHeader({
         Sobre Mim
       </h2>
       <p
-        className={`text-base sm:text-lg md:text-xl ${subtextColor} max-w-4xl mx-auto leading-relaxed px-4 sm:px-0`}
+        className={`text-base sm:text-lg md:text-xl text-gray-50 drop-shadow-md max-w-4xl mx-auto leading-relaxed px-4 sm:px-0`}
       >
         Sou um desenvolvedor apaixonado que adora criar experiências digitais
         que fazem a diferença. Com experiência em desenvolvimento e design,

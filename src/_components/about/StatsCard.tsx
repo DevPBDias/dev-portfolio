@@ -9,23 +9,17 @@ interface StatItem {
 interface StatsCardProps {
   stats: StatItem[];
   textColor: string;
-  subtextColor: string;
-  cardBg: string;
-  borderColor: string;
   variants?: any;
 }
 
 export default function StatsCard({
   stats,
   textColor,
-  subtextColor,
-  cardBg,
-  borderColor,
   variants,
 }: StatsCardProps) {
   return (
     <motion.div
-      className={`${cardBg} backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 ${borderColor}`}
+      className={`bg-black/75 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border-2 border-white/50`}
       variants={variants}
     >
       <h3
@@ -46,7 +40,9 @@ export default function StatsCard({
             >
               {stat.number}
             </div>
-            <div className={`text-xs sm:text-sm md:text-base ${subtextColor}`}>
+            <div
+              className={`text-xs sm:text-sm md:text-base text-gray-50 drop-shadow-md`}
+            >
               {stat.label}
             </div>
           </motion.div>

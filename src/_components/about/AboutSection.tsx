@@ -7,15 +7,16 @@ import PersonalStoryCard from "./PersonalStoryCard";
 import ValuesCard from "./ValuesCard";
 import SkillsGrid from "./SkillsGrid";
 import StatsCard from "./StatsCard";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function AboutSection() {
-  const textColor = "text-white drop-shadow-lg";
-  const subtextColor = "text-gray-50 drop-shadow-md";
-  const cardBg = "bg-black/75";
-  const cardHover = "hover:bg-black/85";
-  const borderColor = "border-white/50";
-  const tagBg = "bg-black/60";
-  const tagBorder = "border-white/40";
+  const { currentTheme } = useTheme();
+  const textColor =
+    currentTheme === "forest-moon"
+      ? "text-green-500 drop-shadow-lg"
+      : currentTheme === "anime-sky"
+      ? "text-blue-500 drop-shadow-lg"
+      : "text-orange-500 drop-shadow-lg";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -30,46 +31,6 @@ export default function AboutSection() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  const skills = [
-    {
-      category: "Frontend",
-      icon: Code,
-      technologies: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Framer Motion",
-      ],
-      color: "#3b82f6",
-    },
-    {
-      category: "Backend",
-      icon: Rocket,
-      technologies: ["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL"],
-      color: "#10b981",
-    },
-    {
-      category: "Design",
-      icon: Palette,
-      technologies: ["Figma", "Adobe XD", "Photoshop", "UI/UX", "Prototyping"],
-      color: "#f59e0b",
-    },
-    {
-      category: "Ferramentas",
-      icon: Coffee,
-      technologies: ["Git", "Docker", "AWS", "Vercel", "VS Code"],
-      color: "#ef4444",
-    },
-  ];
-
-  const stats = [
-    { number: "50+", label: "Projetos Concluídos" },
-    { number: "3+", label: "Anos de Experiência" },
-    { number: "20+", label: "Clientes Satisfeitos" },
-    { number: "∞", label: "Xícaras de Café" },
-  ];
-
   return (
     <section
       id="sobre"
@@ -82,51 +43,14 @@ export default function AboutSection() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <AboutSectionHeader
-          textColor={textColor}
-          subtextColor={subtextColor}
-          variants={itemVariants}
-        />
+        <AboutSectionHeader textColor={textColor} variants={itemVariants} />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
-          <PersonalStoryCard
-            textColor={textColor}
-            subtextColor={subtextColor}
-            cardBg={cardBg}
-            cardHover={cardHover}
-            borderColor={borderColor}
-            variants={itemVariants}
-          />
-          <ValuesCard
-            textColor={textColor}
-            subtextColor={subtextColor}
-            cardBg={cardBg}
-            cardHover={cardHover}
-            borderColor={borderColor}
-            variants={itemVariants}
-          />
+          <PersonalStoryCard textColor={textColor} variants={itemVariants} />
+          <ValuesCard textColor={textColor} variants={itemVariants} />
         </div>
 
-        <SkillsGrid
-          skills={skills}
-          textColor={textColor}
-          subtextColor={subtextColor}
-          cardBg={cardBg}
-          cardHover={cardHover}
-          borderColor={borderColor}
-          tagBg={tagBg}
-          tagBorder={tagBorder}
-          variants={itemVariants}
-        />
-
-        <StatsCard
-          stats={stats}
-          textColor={textColor}
-          subtextColor={subtextColor}
-          cardBg={cardBg}
-          borderColor={borderColor}
-          variants={itemVariants}
-        />
+        <SkillsGrid textColor={textColor} variants={itemVariants} />
       </motion.div>
     </section>
   );
