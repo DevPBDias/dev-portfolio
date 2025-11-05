@@ -28,7 +28,7 @@ export function CtaButtons({ className = "", variants }: CtaButtonsProps) {
       variants={variants}
     >
       <Link
-        href="#projects"
+        href="#projetos"
         className={`cursor-pointer w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 ${bgColor} hover:${hoverColor} text-black drop-shadow-lg rounded-full backdrop-blur-sm transition-all duration-300 font-semibold flex items-center justify-center gap-2 group focus:outline-none focus:ring-4 focus:ring-white/50 text-sm sm:text-base`}
       >
         Confira meus projetos
