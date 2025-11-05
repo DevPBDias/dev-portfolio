@@ -6,13 +6,8 @@ import Link from "next/link";
 interface CtaButtonsProps {
   className?: string;
   variants?: any;
-  scrollToProjects: () => void;
 }
-export function CtaButtons({
-  className = "",
-  variants,
-  scrollToProjects,
-}: CtaButtonsProps) {
+export function CtaButtons({ className = "", variants }: CtaButtonsProps) {
   const { currentTheme } = useTheme();
   const bgColor =
     currentTheme === "forest-moon"
@@ -32,8 +27,8 @@ export function CtaButtons({
       className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 px-2 sm:px-0 ${className}`}
       variants={variants}
     >
-      <button
-        onClick={scrollToProjects}
+      <Link
+        href="#projects"
         className={`cursor-pointer w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 ${bgColor} hover:${hoverColor} text-black drop-shadow-lg rounded-full backdrop-blur-sm transition-all duration-300 font-semibold flex items-center justify-center gap-2 group focus:outline-none focus:ring-4 focus:ring-white/50 text-sm sm:text-base`}
       >
         Confira meus projetos
@@ -41,7 +36,7 @@ export function CtaButtons({
           size={16}
           className="sm:w-[18px] sm:h-[18px] group-hover:translate-x-1 transition-transform"
         />
-      </button>
+      </Link>
       <Link
         href="/cv/PauloBruno_CV.pdf"
         download="PauloBruno_CV.pdf"

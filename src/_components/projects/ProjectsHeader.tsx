@@ -12,6 +12,7 @@ export default function ProjectsHeader({
 }: ProjectsHeaderProps) {
   return (
     <motion.div
+      id="projects"
       className="text-center mb-12 sm:mb-16 bg-black/75 w-full p-6 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border-2 border-white/50"
       variants={variants}
     >

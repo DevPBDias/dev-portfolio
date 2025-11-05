@@ -29,10 +29,6 @@ export default function HeroSection() {
     },
   };
 
-  const scrollToProjects = () => {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-  };
-
   return (
     <motion.div
       className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8"
@@ -48,17 +44,11 @@ export default function HeroSection() {
         <MainTitle variants={itemVariants} />
         <SubTitle variants={itemVariants} />
         <Description variants={itemVariants} />
-        <CtaButtons
-          variants={itemVariants}
-          scrollToProjects={scrollToProjects}
-        />
+        <CtaButtons variants={itemVariants} />
         <SocialLinks variants={itemVariants} />
       </motion.div>
 
-      <AnimatedScrollButton
-        variants={itemVariants}
-        onClick={scrollToProjects}
-      />
+      <AnimatedScrollButton variants={itemVariants} />
     </motion.div>
   );
 }

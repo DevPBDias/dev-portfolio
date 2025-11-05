@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
 interface SocialLinksProps {
   className?: string;
   variants?: any;
@@ -15,7 +16,7 @@ export function SocialLinks({ className = "", variants }: SocialLinksProps) {
       variants={variants}
     >
       <Link
-        href="https://github.com"
+        href="https://github.com/DevPBDias"
         target="_blank"
         rel="noopener noreferrer"
         className="cursor-pointer p-3 sm:p-4 bg-black/80 hover:bg-black/90 rounded-full border-2 border-white/50 backdrop-blur-sm transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-white/50"
@@ -27,7 +28,7 @@ export function SocialLinks({ className = "", variants }: SocialLinksProps) {
         />
       </Link>
       <Link
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/in/devpaulobrunomdias"
         target="_blank"
         rel="noopener noreferrer"
         className="cursor-pointer p-3 sm:p-4 bg-black/80 hover:bg-black/90 rounded-full border-2 border-white/50 backdrop-blur-sm transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-white/50"
@@ -39,7 +40,9 @@ export function SocialLinks({ className = "", variants }: SocialLinksProps) {
         />
       </Link>
       <Link
-        href="mailto:paulo@example.com"
+        href="https://www.behance.net/pbdias"
+        target="_blank"
+        rel="noopener noreferrer"
         className="cursor-pointer p-3 sm:p-4 bg-black/80 hover:bg-black/90 rounded-full border-2 border-white/50 backdrop-blur-sm transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-white/50"
         aria-label="Email"
       >
