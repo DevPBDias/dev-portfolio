@@ -134,9 +134,9 @@ export const projects: Project[] = [
     id: 6,
     title: "Nelore INDI Ouro App",
     description:
-      "Aplicativo desenvolvido para processar e exportar planilhas com gerenciamento de gado nelore feita para ser usada ser internet no ambiente de curral",
+      "Aplicativo desenvolvido para processar e exportar planilhas com gerenciamento de gado nelore feita para ser usada sem internet no ambiente de curral",
     longDescription:
-      "Aplicativo desenvolvido para processar e exportar planilhas com gerenciamento de gado nelore feita para ser usada ser internet no ambiente de curral",
+      "Aplicativo desenvolvido para processar e exportar planilhas com gerenciamento de gado nelore feita para ser usada sem internet no ambiente de curral",
     image: "/images/nelore-app.png",
     technologies: [
       "React",
