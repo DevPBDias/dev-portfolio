@@ -157,7 +157,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 6,
+    id: 7,
     title: "AllInOne Web App",
     description:
       "Projeto pessoal para colocar em prática os aprendizados de angular. O projeto é um Todo-List com um pomodoro de 25mins",
