@@ -25,7 +25,7 @@ export const projects: Project[] = [
     image: "/images/olemidia.jpg",
     technologies: [
       "React",
-      "TS",
+      "Typescript",
       "Styled-components",
       "Framer-motion",
       "Git",
@@ -46,7 +46,14 @@ export const projects: Project[] = [
     longDescription:
       "Landing page responsiva para o Max Training, destacando serviços, depoimentos e conversão.",
     image: "/images/max-training.png",
-    technologies: ["React", "Vite", "TS", "Styled-components", "Git", "Vercel"],
+    technologies: [
+      "React",
+      "Vite",
+      "Typescript",
+      "Styled-components",
+      "Git",
+      "Vercel",
+    ],
     category: "Freelancer",
     year: "2024",
     githubUrl: "https://github.com/DevPBDias/Max-Training-LP",
@@ -65,7 +72,7 @@ export const projects: Project[] = [
       "React",
       "NextJS",
       "Tailwind CSS",
-      "TS",
+      "Typescript",
       "Shadcn",
       "Firebase Auth&DB",
       "React-hook-form",
@@ -86,16 +93,24 @@ export const projects: Project[] = [
     longDescription:
       "Aplicação para reprodução de músicas com favoritos e edição de perfil, reescrita com melhorias de UX e código.",
     image: "/images/trybetunes.jpg",
-    technologies: ["React", "NextJS", "Sass", "TS", "Git", "Vercel", "Figma"],
+    technologies: [
+      "React",
+      "NextJS",
+      "Sass",
+      "Typescript",
+      "Git",
+      "Vercel",
+      "Figma",
+    ],
     category: "Pessoal",
     year: "2023",
     githubUrl: "https://github.com/DevPBDias/trybetunes-reworked",
     liveUrl: "https://trybetunes-reworked.vercel.app",
-    featured: true,
+    featured: false,
   },
   {
     id: 5,
-    title: "App de trailers - FullStack",
+    title: "App de trailers",
     description:
       "Projeto pessoal de um mockup de UX/UI Design feito por mim. Foi desenvolvido um app mobile para navegar por filmes, series e animes",
     longDescription:
@@ -103,7 +118,7 @@ export const projects: Project[] = [
     image: "/images/trailers-app.png",
     technologies: [
       "React",
-      "TS",
+      "Typescript",
       "Styled-components",
       "Nodejs",
       "MongoDb",
@@ -114,5 +129,31 @@ export const projects: Project[] = [
     year: "2023",
     githubUrl: "https://github.com/DevPBDias/app-trailers",
     featured: false,
+  },
+  {
+    id: 6,
+    title: "Nelore INDI Ouro App",
+    description:
+      "Aplicativo desenvolvido para processar e exportar planilhas com gerenciamento de gado nelore feita para ser usada ser internet no ambiente de curral",
+    longDescription:
+      "Aplicativo desenvolvido para processar e exportar planilhas com gerenciamento de gado nelore feita para ser usada ser internet no ambiente de curral",
+    image: "/images/nelore-app.png",
+    technologies: [
+      "React",
+      "NextJS",
+      "Next-PWA",
+      "Shadcn/ui",
+      "Typescript",
+      "Tailwind css",
+      "SQLite",
+      "Framer-motion",
+      "Git/Github",
+      "Vercel",
+    ],
+    category: "Freelancer",
+    year: "2025",
+    githubUrl: "https://github.com/DevPBDias/rico-ouro-app",
+    liveUrl: "https://rico-ouro-app-i3oc.vercel.app",
+    featured: true,
   },
 ];
