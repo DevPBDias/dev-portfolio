@@ -106,7 +106,7 @@ export const projects: Project[] = [
     year: "2023",
     githubUrl: "https://github.com/DevPBDias/trybetunes-reworked",
     liveUrl: "https://trybetunes-reworked.vercel.app",
-    featured: false,
+    featured: true,
   },
   {
     id: 5,
@@ -154,6 +154,21 @@ export const projects: Project[] = [
     year: "2025",
     githubUrl: "https://github.com/DevPBDias/rico-ouro-app",
     liveUrl: "https://rico-ouro-app-i3oc.vercel.app",
+    featured: true,
+  },
+  {
+    id: 6,
+    title: "AllInOne Web App",
+    description:
+      "Projeto pessoal para colocar em prática os aprendizados de angular. O projeto é um Todo-List com um pomodoro de 25mins",
+    longDescription:
+      "Projeto pessoal para colocar em prática os aprendizados de angular. O projeto é um Todo-List com um pomodoro de 25mins",
+    image: "/images/angular-todo-pomodoro.png",
+    technologies: ["Angular", "Typescript", "Tailwind css", "Git", "Vercel"],
+    category: "Pessoal",
+    year: "2025",
+    githubUrl: "https://github.com/DevPBDias/angular-modern-todo-list",
+    liveUrl: "https://angular-modern-todo-list.vercel.app",
     featured: true,
   },
 ];
