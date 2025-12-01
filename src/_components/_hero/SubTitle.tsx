@@ -21,7 +21,7 @@ export function SubTitle({ className = "", variants }: SubTitleProps) {
       className={`text-lg sm:text-xl md:text-2xl lg:text-3xl  ${textColor} animate-pulse drop-shadow-md mb-6 sm:mb-8 font-medium px-2 sm:px-0 ${className}`}
       variants={variants}
     >
-      Desenvolvedor Front-end & Web Designer
+      Desenvolvedor Web & UI/UX Designer
     </motion.h2>
   );
 }

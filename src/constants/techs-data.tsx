@@ -34,6 +34,7 @@ export const skills: Skill[] = [
       "Express.js",
       "Sequelize",
       "Mongoose",
+      "Supabase (PostgreSQL)",
     ],
     color: "#10b981",
   },
